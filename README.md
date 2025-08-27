@@ -26,6 +26,7 @@ Accepted User Flags:
 
 ```
 --mode=server|client|bootstrap
+--ephemeral
 --transport=enet|steam
 --port=NNNN
 --connect=HOST:PORT

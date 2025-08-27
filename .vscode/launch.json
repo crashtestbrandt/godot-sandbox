@@ -1,0 +1,79 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Client (connect to localhost)",
+      "type": "godot",
+      "request": "launch",
+      "project": "${workspaceFolder}",
+      "debug_collisions": false,
+      "debug_paths": false,
+      "debug_navigation": false,
+      "additional_options": "-- --mode=client --transport=enet --connect=127.0.0.1:${input:port} --map=${input:map}"
+    },
+    {
+      "name": "Host (bootstrap: spawn local DS, then connect)",
+      "type": "godot",
+      "request": "launch",
+      "project": "${workspaceFolder}",
+      "debug_collisions": false,
+      "debug_paths": false,
+      "debug_navigation": false,
+      "additional_options": "-- --mode=bootstrap --transport=enet --port=${input:port} --map=${input:map}"
+    },
+    {
+      "name": "Dedicated Server (ENet, headless)",
+      "type": "godot",
+      "request": "launch",
+      "project": "${workspaceFolder}",
+      "debug_collisions": false,
+      "debug_paths": false,
+      "debug_navigation": false,
+      "additional_options": "--headless -- --mode=server --transport=enet --port=${input:port} --max_clients=${input:maxClients} --map=${input:map}"
+    },
+
+    // Optional placeholder: uncomment after you wire up Steam (GodotSteam)
+//    {
+//      "name": "Dedicated Server (Steam, headless)",
+//      "type": "godot",
+//      "request": "launch",
+//      "project": "${workspaceFolder}",
+//      "debug_collisions": false,
+//      "debug_paths": false,
+//      "debug_navigation": false,
+//      "additional_options": "--headless -- --mode=server --transport=steam --map=${input:map}"
+//    }
+  ],
+
+  "compounds": [
+    {
+      "name": "Local DS + Client (two launches)",
+      "configurations": [
+        "Dedicated Server (ENet, headless)",
+        "Client (connect to localhost)"
+      ],
+      "stopAll": true
+    }
+  ],
+
+  "inputs": [
+    {
+      "id": "port",
+      "type": "promptString",
+      "description": "Server port",
+      "default": "27015"
+    },
+    {
+      "id": "maxClients",
+      "type": "promptString",
+      "description": "Max clients",
+      "default": "8"
+    },
+    {
+      "id": "map",
+      "type": "promptString",
+      "description": "Map scene path",
+      "default": "res://world/TestWorld.tscn"
+    }
+  ]
+}

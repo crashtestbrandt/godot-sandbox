@@ -1,0 +1,14 @@
+{
+    "godotTools.editorPath.godot4": "godot",
+    "dotnet.defaultSolution": "disable",
+    "[gdscript]": {
+        "editor.detectIndentation": false, // ignore file’s existing index
+        "editor.insertSpaces": false, // false = tabs; true = spaces
+        "editor.tabSize": 4, // size of a tab character
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.godotTools": "always"
+        }
+    },
+}

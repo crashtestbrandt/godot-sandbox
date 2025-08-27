@@ -1,3 +1,22 @@
 # Godot Sandbox
 
 For exploring and demonstrating concepts in Godot 4.4.
+
+## Repo Structure
+
+```bash
+project.godot
+autoload/
+  Bootstrap.gd
+  NetConfig.gd
+net/
+  Server.gd
+  Client.gd
+  SpawnService.gd
+player/
+  PlayerPawn.tscn
+  PlayerPawn.gd
+world/
+  TestWorld.tscn
+```
+
